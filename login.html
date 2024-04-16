@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login & Registration Form | helpme_coder</title>
+  <link rel="stylesheet" type="text/css" href="login_style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+      <form action="">
+        <h2>Sign-in</h2>
+
+        <div class="input-group">
+          <input type="text" id="id" required>
+          <label for="id">30 + 학번</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="pw" required>
+          <label for="pw">생일6자리</label>
+        </div>
+
+        <button type="submit" id="logintry">Login</button>
+        
+        <div class="signUp-link">
+          <p>Don't have an account? <a href="#" class="signUpBtn-link">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-wrapper sign-up">
+      <form action="">
+        <h2>Sign Up</h2>
+
+        <div class="input-group">
+          <input type="text" id="newid" required>
+          <label for="newid">30+학번</label>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="newpw" required>
+          <label for="newpw">생일 6자리</label>
+        </div>
+
+        <button type="submit" id="signup">Sign Up</button>
+        
+        <div class="signUp-link">
+          <p>Already have an account? <a href="#" class="signInBtn-link">Sign In</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBcdR9XmStnz4xVk--ni29xr2axdHnQ9fQ",
+      authDomain: "study-83350.firebaseapp.com",
+      projectId: "study-83350",
+      storageBucket: "study-83350.appspot.com",
+      messagingSenderId: "700596437577",
+      appId: "1:700596437577:web:f57c75d1a6bb7ca842f598",
+      measurementId: "G-2599SMBXQF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    const auth = getAuth();
+
+    document.getElementById('logintry').addEventListener('click', (event) => {
+      event.preventDefault()
+      const id = document.getElementById('id').value
+      const pw = document.getElementById('pw').value
+
+      signInWithEmailAndPassword(auth, id + '@example.com', pw)
+        .then((userCredential) => {
+          // Signed in 
+          console.log(userCredential)
+          const user = userCredential.user;
+
+          alert("로그인 성공");
+          window.location.href = "login.html"; //나중에 바꿀것
+        })
+
+        .catch((error) => {
+          alert("로그인 실패");
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    })
+
+    document.getElementById('signup').addEventListener('click', (event) => {
+      event.preventDefault()
+      const newid = document.getElementById('newid').value
+      const newpw = document.getElementById('newpw').value
+
+      createUserWithEmailAndPassword(auth, newid + '@example.com', newpw)
+        .then((userCredential) => {
+          console.log(userCredential)
+          // Signed in 
+          const user = userCredential.user;
+
+          alert("회원가입 성공");
+          window.location.href = "login.html";
+        })
+
+        .catch((error) => {
+          alert("회원가입 실패")
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+    })
+  </script>
+
+  <script src="login_script.js"></script>
+  <!-- code by helpme_coder -->
+</body>
+
+</html>
