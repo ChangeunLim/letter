@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBcdR9XmStnz4xVk--ni29xr2axdHnQ9fQ",
+            authDomain: "study-83350.firebaseapp.com",
+            projectId: "study-83350",
+            storageBucket: "study-83350.appspot.com",
+            messagingSenderId: "700596437577",
+            appId: "1:700596437577:web:f57c75d1a6bb7ca842f598",
+            measurementId: "G-2599SMBXQF"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        // 사용자 이름 가져오기
+        const userName = sessionStorage.getItem('username');
+
+        // 사용자 이름 표시
+        window.addEventListener('DOMContentLoaded', () => {
+            const nameElement = document.getElementById('name');
+            if (userName) {
+                nameElement.innerText = `${userName} 안녕`;
+            } else {
+                nameElement.innerText = "다시 접속해주세요.";
+            }
+        });
+    </script>
 </head>
+
 <body>
-    <h1>안녕애들아</h1>
+    <div>
+        <h1 id="name"></h1>
+    </div>
 </body>
+
 </html>
