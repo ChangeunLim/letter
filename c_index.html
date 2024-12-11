@@ -1,33 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Merry chritsmas</title>
-    <link rel="stylesheet" href="c_style.css">
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        filter: drop-shadow(0 0 10px white);
+        justify-content: center;
+        align-items: center;
+        overflow:  hidden;
+      }
+      .snowflake {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: white;
+        position: absolute; 
+        top: -3px;
+      }
+
+      @keyframes fall {
+        from {
+        }
+        to {
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <script>
+      const body = document.querySelector("body");
+
+      const MIN_DURATION = 10;
+
+      function makeSnowflake() {
+        const snowflake = document.createElement("div");
+        const delay = Math.random() * 10;
+        const initialOpacity = Math.random();
+        const duration = Math.random() * 20 + MIN_DURATION;
+
+        snowflake.classList.add("snowflake");
+        snowflake.style.left = `${Math.random() * window.screen.width}px`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.opacity = initialOpacity;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        body.appendChild(snowflake);
+
+        setTimeout(() => {
+          body.removeChild(snowflake);
+          makeSnowflake();
+        }, (duration + delay) * 1000);
+      }
+
+      for (let index = 0; index < 50; index++) {
+        setTimeout(makeSnowflake, 500 * index);
+      }
+    </script>
+    
     <div class="merry-chritsmas">
         <div class="content-circle">
             <div id="christmas-tree" class="christmas-tree">
                 <div class="tree">
                     <div class="tree-details"></div>
                 </div>
+
                 <div class="lights">
                     <div class="row-one"></div>
                     <div class="row-two"></div>
                 </div>
+
                 <div class="balls"></div>
+
                 <div class="stars"></div>
+
                 <div class="shadow"></div>
             </div>
           </div>
+
           <div class="moon"></div>
         </div>
 
         <div class="merry-text">
-          <span class="merry">Merry</span> <span class="christmas">Christmas</span>
+            <span class="merry">Merry</span> <span class="christmas">Christmas</span>
         </div>
-      </div>
+    </div>
   </body>
-</html>
+</html
