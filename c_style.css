@@ -1,17 +1,7 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: black;
-    overflow: hidden;
-  }
-  
-  .merry-chritsmas {
+.merry-chritsmas {
     position: relative;
-  }
-  
-  .content-circle {
+}
+.content-circle {
     position: relative;
     width: 450px;
     height: 450px;
@@ -22,9 +12,8 @@ body {
     -moz-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
-  }
-  
-  .content-circle:before {
+}
+.content-circle:before {
     content:"";
     position: absolute;
     width:450px;
@@ -33,7 +22,8 @@ body {
     border-radius:50% 50% 0 0;
     background-color: #000;
   }
-  .moon {
+
+.moon {
     position:absolute;
     width:200px;
     height:200px;
@@ -44,8 +34,7 @@ body {
     top:40px;
     box-shadow:inset 7px -7px 0 rgba(0,0,0,0.09);
   }
-  
-  .moon:before, .moon:after {
+.moon:before, .moon:after {
     content:"";
     position: absolute;
     border-radius:50%;
@@ -58,7 +47,6 @@ body {
     top:50px;
     left:45px;
   }
-    
   .moon:after {
     width:40px;
     height:40px;
@@ -71,7 +59,6 @@ body {
     left:300px;
     cursor: pointer;
   }
-  
   .tree {
     position: absolute;
     width: 20px;
@@ -81,7 +68,7 @@ body {
     height:0;
     animation: drop 1s linear;
   }
-  
+
   .tree:before {
     content:"";
     position: absolute;
@@ -92,7 +79,6 @@ body {
     top:50px;
     left:-5px;
   }
-  
   .tree:after {
     content:"";
     position: absolute;
@@ -104,7 +90,6 @@ body {
     top:-180px;
     left:-65px;
   }
-  
   .tree-details {
     position: absolute;
     width: 150px;
@@ -115,7 +100,6 @@ body {
     left:-65px;
     z-index:1;
   }
-  
   .tree-details:before {
     content:"";
     position: absolute;
@@ -127,19 +111,16 @@ body {
     left:20px;
     box-shadow: 50px -50px #0a897c, 30px -70px #0a897c, 40px -130px #0a897c, 70px -5px #0a897c, 85px -75px #0a897c;
   }
-  
   .lights {
     position: absolute;
     opacity:0;
     animation: light 2s linear infinite, drop 1s linear .5s forwards;
   }
-  
   @keyframes light {
     0% {filter: drop-shadow(0 0 2px #fefae0) brightness(1);}
     50% {filter: drop-shadow(0 0 5px #fefae0) brightness(1.35);}
     100% {filter: drop-shadow(0 0 2px #fefae0) brightness(1);}
   }
-  
   .row-one {
     position: absolute;
     background-color: #e9d8a6;
@@ -150,7 +131,6 @@ body {
     left: -15px;
     box-shadow: 10px 10px #e9d8a6, 25px 15px #e9d8a6, 40px 18px #e9d8a6, 54px 15px #e9d8a6;
   }
-  
   .row-two {
     position: absolute;
     background-color: #e9d8a6;
@@ -161,7 +141,6 @@ body {
     top:-45px;
     box-shadow: 10px 10px #e9d8a6, 25px 17px #e9d8a6, 40px 24px #e9d8a6, 55px 28px #e9d8a6, 70px 30px #e9d8a6, 85px 29px #e9d8a6, 100px 25px #e9d8a6, 112px 20px #e9d8a6;
   }
-  
   .balls {
     position: absolute;
     background-color: #f34653;
@@ -173,7 +152,6 @@ body {
     box-shadow: -20px -55px #f34653, 25px -70px #f34653;
     animation: drop 1s linear 1s forwards;
   }
-  
   .balls:before {
     content:"";
     position: absolute;
@@ -185,7 +163,6 @@ body {
     top:-10px;
     box-shadow: 100px 10px #f34653, 25px -80px #f34653, 60px -120px #f34653;
   }
-  
   .balls:after {
     content:"";
     position: absolute;
@@ -227,7 +204,7 @@ body {
         transform: rotate(-35deg);
       }
   
-  .star:after {
+.star:after {
         position: absolute;
         display: block;
         top: 0.75px;
@@ -239,75 +216,74 @@ body {
         border-left: 25px solid transparent;
         transform: rotate(-70deg);
         content: '';
-      }
-     
-      @keyframes drop {
-    0% {transform: translateY(-470px) scaleY(0.9); opacity: 0;}
-    5% {opacity: 1;}
-    50% {transform: translateY(0px) scaleY(1); opacity: 1;}
-    65% {transform: translateY(-15px) scaleY(0.9); opacity: 1;}
-    75% {transform: translateY(-18px) scaleY(0.9); opacity: 1;}
-    100% {transform: translateY(0px) scaleY(1); opacity: 1;}
-  }
-  
-     @keyframes dropStar {
-    0% {transform: translateY(-470px) scaleY(0.9) rotate(-35deg); opacity: 0;}
-    5% {opacity: 1;}
-    50% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
-    65% {transform: translateY(-15px) scaleY(0.9) rotate(-35deg); opacity: 1;}
-    75% {transform: translateY(-18px) scaleY(0.9) rotate(-35deg); opacity: 1;}
-    100% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
-    100% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
-  }
-  
-  .shadow {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.7);
-    width: 50px;
-    height: 20px;
-    z-index:-1;
-    top:50px;
-    left:-10px;
-    animation: scale .5s linear forwards;
-  }
-  
-  @keyframes scale {
-    0% {transform: scaleX(1);}
-    100% {transform: scaleX(3);}
-  }
-  
-  
-  .merry-text {
-    position: absolute;
-    bottom: 100px; /* 페이지 아래쪽에 배치 */
-    width: 100%;
-    text-align: center;
-    font-size: 70px; 
-    font-family: 'mountains_of_christmasregular', sans-serif;
-    animation: flyInFromLeft 1.5s ease-in-out forwards;
-  }
-  
-  .merry {
-    color: white;
-    font-weight: bolder;
-    animation: flyInFromRight 1.5s forwards;
-  }
-  
-  .christmas {
-    color: #D84B3B; 
-    font-weight: bolder;
-    animation: dropLetter 1s forwards;
-  }
+    }
 
-  @keyframes flyInFromLeft {
-    0% { transform: translateX(-100vw); opacity: 0; } 
-    50% { opacity: 1; }
-    100% { transform: translateX(0); opacity: 1; } 
-  }
-  
-  @keyframes flyInFromRight {
-    0% { transform: translateX(100vw); opacity: 0; } 
-    50% { opacity: 1; } 
-    100% { transform: translateX(0); opacity: 1; }
-  }
+    @keyframes drop {
+        0% {transform: translateY(-470px) scaleY(0.9); opacity: 0;}
+        5% {opacity: 1;}
+        50% {transform: translateY(0px) scaleY(1); opacity: 1;}
+        65% {transform: translateY(-15px) scaleY(0.9); opacity: 1;}
+        75% {transform: translateY(-18px) scaleY(0.9); opacity: 1;}
+        100% {transform: translateY(0px) scaleY(1); opacity: 1;}
+      }
+      
+    @keyframes dropStar {
+        0% {transform: translateY(-470px) scaleY(0.9) rotate(-35deg); opacity: 0;}
+        5% {opacity: 1;}
+        50% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
+        65% {transform: translateY(-15px) scaleY(0.9) rotate(-35deg); opacity: 1;}
+        75% {transform: translateY(-18px) scaleY(0.9) rotate(-35deg); opacity: 1;}
+        100% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
+        100% {transform: translateY(0px) scaleY(1) rotate(-35deg); opacity: 1;}
+    }
+
+    .shadow {
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(0,0,0,0.7);
+        width: 50px;
+        height: 20px;
+        z-index:-1;
+        top:50px;
+        left:-10px;
+        animation: scale .5s linear forwards;
+      }
+
+      @keyframes scale {
+        0% {transform: scaleX(1);}
+        100% {transform: scaleX(3);}
+      }
+      
+      
+      .merry-text {
+        position: absolute;
+        bottom: 100px; /* 페이지 아래쪽에 배치 */
+        width: 100%;
+        text-align: center;
+        font-size: 70px; /* 글자 크기 */
+        font-family: 'mountains_of_christmasregular', sans-serif; /* 크리스마스 테마에 맞는 폰트 */
+        animation: flyInFromLeft 1.5s ease-in-out forwards;
+      }
+      
+      .merry {
+        color: white; /* Merry는 하얀색 */
+        font-weight: bolder;
+        animation: flyInFromRight 1.5s forwards;
+      }
+      
+      .christmas {
+        color: #D84B3B; /* Christmas는 진하지 않은 빨간색 */
+        font-weight: bolder;
+        animation: dropLetter 1s forwards;
+      }
+      @keyframes flyInFromLeft {
+        0% { transform: translateX(-100vw); opacity: 0; } /* 화면 왼쪽 밖에서 시작 */
+        50% { opacity: 1; } /* 중앙으로 오면서 점차적으로 나타남 */
+        100% { transform: translateX(0); opacity: 1; } /* 화면 중앙에 정렬 */
+      }
+      
+      @keyframes flyInFromRight {
+        0% { transform: translateX(100vw); opacity: 0; } /* 화면 오른쪽 밖에서 시작 */
+        50% { opacity: 1; } /* 중앙으로 오면서 점차적으로 나타남 */
+        100% { transform: translateX(0); opacity: 1; } /* 화면 중앙에 정렬 */
+      }
