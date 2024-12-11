@@ -283,31 +283,31 @@ body {
     bottom: 100px; /* 페이지 아래쪽에 배치 */
     width: 100%;
     text-align: center;
-    font-size: 70px; /* 글자 크기 */
-    font-family: 'mountains_of_christmasregular', sans-serif; /* 크리스마스 테마에 맞는 폰트 */
+    font-size: 70px; 
+    font-family: 'mountains_of_christmasregular', sans-serif;
     animation: flyInFromLeft 1.5s ease-in-out forwards;
   }
   
   .merry {
-    color: white; /* Merry는 하얀색 */
+    color: white;
     font-weight: bolder;
     animation: flyInFromRight 1.5s forwards;
   }
   
   .christmas {
-    color: #D84B3B; /* Christmas는 진하지 않은 빨간색 */
+    color: #D84B3B; 
     font-weight: bolder;
     animation: dropLetter 1s forwards;
   }
 
   @keyframes flyInFromLeft {
-    0% { transform: translateX(-100vw); opacity: 0; } /* 화면 왼쪽 밖에서 시작 */
-    50% { opacity: 1; } /* 중앙으로 오면서 점차적으로 나타남 */
-    100% { transform: translateX(0); opacity: 1; } /* 화면 중앙에 정렬 */
+    0% { transform: translateX(-100vw); opacity: 0; } 
+    50% { opacity: 1; }
+    100% { transform: translateX(0); opacity: 1; } 
   }
   
   @keyframes flyInFromRight {
-    0% { transform: translateX(100vw); opacity: 0; } /* 화면 오른쪽 밖에서 시작 */
-    50% { opacity: 1; } /* 중앙으로 오면서 점차적으로 나타남 */
-    100% { transform: translateX(0); opacity: 1; } /* 화면 중앙에 정렬 */
+    0% { transform: translateX(100vw); opacity: 0; } 
+    50% { opacity: 1; } 
+    100% { transform: translateX(0); opacity: 1; }
   }
