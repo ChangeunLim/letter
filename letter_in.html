@@ -17,13 +17,10 @@
             measurementId: "G-2599SMBXQF"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
 
-        // 사용자 이름 가져오기
         const userName = sessionStorage.getItem('username');
 
-        // 사용자 이름 표시
         window.addEventListener('DOMContentLoaded', () => {
             const nameElement = document.getElementById('name');
             if (userName) {
