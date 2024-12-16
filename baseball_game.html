@@ -3,9 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>숫자 야구 미니 게임</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #results {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+        #results li {
+            margin: 5px 0;
+            padding: 5px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello world</h1>
+    <h1>Number Guessing Game</h1>
+    <div>
+        <label for="guessInput">생각하는 숫자 띄어서 쓰기:</label>
+        <input type="text" id="guessInput" placeholder="ex 1 2 3 ...">
+        <button id="submitGuess">입력</button>
+    </div>
+    <ul id="results"></ul>
+
+    <script>
+        let t = parseInt(prompt("숫자의 개수를 정해주세요."), 10);
+        let u = parseInt(prompt("숫자의 범위를 정해주세요.{ ex) 0 ~ n }"), 10);
+        let o = prompt("숫자 중복 가능 여부 입력 (y / n)");
+        const num3 = [];
+        let num_sum = 0;
+
+        if (o === "n") {
+            while (num3.length < t) {
+                let q = Math.floor(Math.random() * (u + 1));
+                if (!num3.includes(q)) {
+                    num3.push(q);
+                }
+            }
+        } else if (o === "y") {
+            for (let i = 0; i < t; i++) {
+                let q = Math.floor(Math.random() * (u + 1));
+                num3.push(q);
+            }
+        }
+
+        console.log("Generated numbers (for debugging):", num3);
+
+        const resultsList = document.getElementById("results");
+        const guessInput = document.getElementById("guessInput");
+        const submitGuessButton = document.getElementById("submitGuess");
+
+        submitGuessButton.addEventListener("click", () => {
+            const s = guessInput.value.trim();
+            const tnum = s.split(" ").map(Number);
+
+            let ball = 0;
+            let strike = 0;
+            let out = 0;
+
+            for (let i = 0; i < t; i++) {
+                if (num3.includes(tnum[i])) {
+                    if (i === num3.indexOf(tnum[i])) {
+                        strike += 1;
+                    } else {
+                        ball += 1;
+                    }
+                } else {
+                    out += 1;
+                }
+            }
+
+            const resultItem = document.createElement("li");
+            if (strike === t) {
+                num_sum += 1;
+                resultItem.textContent = `정답입니다! 총 시도 회수: ${num_sum}회`;
+                resultsList.appendChild(resultItem);
+                alert("게임이 종료되었습니다!");
+                submitGuessButton.disabled = true;
+            } else {
+                num_sum += 1;
+                resultItem.textContent = `${s} => ${strike}S ${ball}B ${out}O`;
+                resultsList.appendChild(resultItem);
+            }
+
+            guessInput.value = ""; 
+            guessInput.focus();  
+        });
+    </script>
 </body>
 </html>
