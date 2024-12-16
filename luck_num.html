@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto & 연금복권 Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .results {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result-box {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .lotto {
+            color: #27ae60;
+        }
+
+        .pension {
+            color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lotto & 연금복권</h1>
+    <div class="results">
+        <div id="lotto" class="result-box lotto">Lotto 번호 : </div>
+        <div id="pension" class="result-box pension">연금 복권: </div>
+    </div>
+
+    <script>
+        // Generate Lotto Numbers
+        const lottoNumbers = [];
+        while (lottoNumbers.length < 6) {
+            let num = Math.floor(Math.random() * 45) + 1; // 1~45
+            if (!lottoNumbers.includes(num)) {
+                lottoNumbers.push(num);
+            }
+        }
+        document.getElementById('lotto').innerText = `Lotto Numbers: ${lottoNumbers.join(", ")}`;
+
+        // Generate 연금복권 Numbers
+        const pensionNumbers = [];
+        for (let i = 0; i < 6; i++) {
+            let num = Math.floor(Math.random() * 10); // 0~9
+            pensionNumbers.push(num);
+        }
+        const group = Math.floor(Math.random() * 9) + 1; // 1~9
+        document.getElementById('pension').innerText = `Pension Numbers: ${group}조 ${pensionNumbers.join("")}`;
+    </script>
+</body>
+
+</html>
